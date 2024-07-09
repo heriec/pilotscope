@@ -1,361 +1,134 @@
-English | [**中文**](https://github.com/modelscope/agentscope/blob/main/README_ZH.md)
+[English](./README.md) | 中文
 
-<h3 align="center"><img src="Assets/logo.png" height="64"><br>AppWielder: 允许自然语言来控制你的应用程序</h3>
+<h3 align="center"><img src="Assets/logo.png" height="64"><br>AppWielder: 允许用户通过自然语言来操纵你的应用程序</h3>
 
 <div align="center">
 
 [![](https://img.shields.io/badge/python-3.9+-blue)](https://pypi.org/project/agentscope/)
 [![](https://img.shields.io/badge/Docs-English%7C%E4%B8%AD%E6%96%87-blue?logo=markdown)](https://modelscope.github.io/agentscope/#welcome-to-agentscope-tutorial-hub)
-[![](https://img.shields.io/badge/ModelScope-Demos-4e29ff.svg?logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjI0IDEyMS4zMyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxwYXRoIGQ9Im0wIDQ3Ljg0aDI1LjY1djI1LjY1aC0yNS42NXoiIGZpbGw9IiM2MjRhZmYiIC8+Cgk8cGF0aCBkPSJtOTkuMTQgNzMuNDloMjUuNjV2MjUuNjVoLTI1LjY1eiIgZmlsbD0iIzYyNGFmZiIgLz4KCTxwYXRoIGQ9Im0xNzYuMDkgOTkuMTRoLTI1LjY1djIyLjE5aDQ3Ljg0di00Ny44NGgtMjIuMTl6IiBmaWxsPSIjNjI0YWZmIiAvPgoJPHBhdGggZD0ibTEyNC43OSA0Ny44NGgyNS42NXYyNS42NWgtMjUuNjV6IiBmaWxsPSIjMzZjZmQxIiAvPgoJPHBhdGggZD0ibTAgMjIuMTloMjUuNjV2MjUuNjVoLTI1LjY1eiIgZmlsbD0iIzM2Y2ZkMSIgLz4KCTxwYXRoIGQ9Im0xOTguMjggNDcuODRoMjUuNjV2MjUuNjVoLTI1LjY1eiIgZmlsbD0iIzYyNGFmZiIgLz4KCTxwYXRoIGQ9Im0xOTguMjggMjIuMTloMjUuNjV2MjUuNjVoLTI1LjY1eiIgZmlsbD0iIzM2Y2ZkMSIgLz4KCTxwYXRoIGQ9Im0xNTAuNDQgMHYyMi4xOWgyNS42NXYyNS42NWgyMi4xOXYtNDcuODR6IiBmaWxsPSIjNjI0YWZmIiAvPgoJPHBhdGggZD0ibTczLjQ5IDQ3Ljg0aDI1LjY1djI1LjY1aC0yNS42NXoiIGZpbGw9IiMzNmNmZDEiIC8+Cgk8cGF0aCBkPSJtNDcuODQgMjIuMTloMjUuNjV2LTIyLjE5aC00Ny44NHY0Ny44NGgyMi4xOXoiIGZpbGw9IiM2MjRhZmYiIC8+Cgk8cGF0aCBkPSJtNDcuODQgNzMuNDloLTIyLjE5djQ3Ljg0aDQ3Ljg0di0yMi4xOWgtMjUuNjV6IiBmaWxsPSIjNjI0YWZmIiAvPgo8L3N2Zz4K)](https://modelscope.cn/studios?name=agentscope&page=1&sort=latest)
 [![](https://img.shields.io/badge/license-Apache--2.0-black)](./LICENSE)
 [![](https://img.shields.io/badge/Contribute-Welcome-green)](https://modelscope.github.io/agentscope/tutorial/contribute.html)
-[![](https://img.shields.io/github/stars/gencay/vscode-chatgpt?color=blue&label=Github%20Stars)]()
+
+[//]: # ([![]&#40;https://img.shields.io/github/stars/gencay/vscode-chatgpt?color=blue&label=Github%20Stars&#41;]&#40;&#41;)
 
 </div>
 
-## News
+## 新闻
 
-- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-06-14]** A new prompt tuning module is available in AgentScope to help developers generate and optimize the agents' system prompts! Refer to our [tutorial](https://modelscope.github.io/agentscope/en/tutorial/209-prompt_opt.html) for more details!
-
-- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-06-11]** The RAG functionality is available for agents in **AgentScope** now! [**A quick introduction to RAG in AgentScope**](https://modelscope.github.io/agentscope/en/tutorial/210-rag.html) can help you equip your agent with external knowledge!
-
-- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-06-09]** We release **AgentScope** v0.0.5 now! In this new version, [**AgentScope Workstation**](https://modelscope.github.io/agentscope/en/tutorial/209-gui.html) (the online version is running on [agentscope.io](https://agentscope.io)) is open-sourced with the refactored [**AgentScope Studio**](https://modelscope.github.io/agentscope/en/tutorial/209-gui.html)!
-
-<h5 align="center">
-<img src="https://img.alicdn.com/imgextra/i1/O1CN01RXAVVn1zUtjXVvuqS_!!6000000006718-1-tps-3116-1852.gif" width="600" alt="agentscope-logo">
-</h5>
-
-- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-05-24]** We are pleased to announce that features related to the **AgentScope Workstation** will soon be open-sourced! The online website services are temporarily offline. The online website service will be upgraded and back online shortly. Stay tuned...
-
-- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-05-15]** A new **Parser Module** for **formatted response** is added in AgentScope! Refer to our [tutorial](https://modelscope.github.io/agentscope/en/tutorial/203-parser.html) for more details. The [`DictDialogAgent`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/agents/dict_dialog_agent.py) and [werewolf game](https://github.com/modelscope/agentscope/tree/main/examples/game_werewolf) example are updated simultaneously.
-
-<video width="320" height="240" controls>
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-  Your browser does not support the video tag.
-</video>
-
-<https://github.com/qbc2016/AgentScope/assets/22984042/22d45aee-3470-4923-850f-348a5b0faaa7>
-
-- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-05-14]** Dear AgentScope users, we are conducting a survey on **AgentScope Workstation & Copilot** user experience. We currently need your valuable feedback to help us improve the experience of AgentScope's Drag & Drop multi-agent application development and Copilot. Your feedback is valuable and the survey will take about 3~5 minutes. Please click [URL](https://survey.aliyun.com/apps/zhiliao/vgpTppn22) to participate in questionnaire surveys. Thank you very much for your support and contribution!
-
-- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-05-14]** AgentScope supports **gpt-4o** as well as other OpenAI vision models now! Try gpt-4o with its [model configuration](./examples/model_configs_template/openai_chat_template.json) and new example [Conversation with gpt-4o](./examples/conversation_with_gpt-4o)!
-
-- **[2024-04-30]** We release **AgentScope** v0.0.4 now!
-
-- **[2024-04-27]** [AgentScope Workstation](https://agentscope.aliyun.com/) is now online! You are welcome to try building your multi-agent application simply with our *drag-and-drop platform* and ask our *copilot* questions about AgentScope!
-
-- **[2024-04-19]** AgentScope supports Llama3 now! We provide [scripts](https://github.com/modelscope/agentscope/blob/main/examples/model_llama3) and example [model configuration](https://github.com/modelscope/agentscope/blob/main/examples/model_llama3) for quick set-up. Feel free to try llama3 in our examples!
-
-- **[2024-04-06]** We release **AgentScope** v0.0.3 now!
-
-- **[2024-04-06]** New examples [Gomoku](https://github.com/modelscope/agentscope/blob/main/examples/game_gomoku), [Conversation with ReAct Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_react_agent), [Conversation with RAG Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_RAG_agents) and [Distributed Parallel Optimization](https://github.com/modelscope/agentscope/blob/main/examples/distributed_parallel_optimization) are available now!
-
-- **[2024-03-19]** We release **AgentScope** v0.0.2 now! In this new version,
-AgentScope supports [ollama](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#supported-models)(A local CPU inference engine), [DashScope](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#supported-models) and Google [Gemini](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#supported-models) APIs.
-
-- **[2024-03-19]** New examples ["Autonomous Conversation with Mentions"](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_mentions) and ["Basic Conversation with LangChain library"](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_langchain) are available now!
-
-- **[2024-03-19]** The [Chinese tutorial](https://modelscope.github.io/agentscope/zh_CN/index.html) of AgentScope is online now!
-
-- **[2024-02-27]** We release **AgentScope v0.0.1** now, which is also
-available in [PyPI](https://pypi.org/project/agentscope/)!
-- **[2024-02-14]** We release our paper "AgentScope: A Flexible yet Robust
-Multi-Agent Platform" in [arXiv](https://arxiv.org/abs/2402.14034) now!
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-06-27]**
+  基于**AppWielder**，我们实现了一个Visual Studio
+  Code插件[SmarterVscode]()
+  ，允许用户通过自然语言来操作VsCode支持的各种功能，例如：一句话改变主题，字体，生成代码等等。[了解更多](https://modelscope.github.io/agentscope/zh_CN/tutorial/302-contribute.html#vscode-plugin)
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-06-27]**
+  我们现在发布了**AppWielder** v1.0版本！
 
 ---
 
-## What's AgentScope?
-
-AgentScope is an innovative multi-agent platform designed to empower developers
-to build multi-agent applications with large-scale models.
-It features three high-level capabilities:
-
-- 🤝 **Easy-to-Use**: Designed for developers, with [fruitful components](https://modelscope.github.io/agentscope/en/tutorial/204-service.html#),
-[comprehensive documentation](https://modelscope.github.io/agentscope/en/index.html), and broad compatibility. Besides, [AgentScope Workstation](https://agentscope.aliyun.com/) provides a *drag-and-drop programming platform* and a *copilot* for beginners of AgentScope!
-
-- ✅ **High Robustness**: Supporting customized fault-tolerance controls and
-retry mechanisms to enhance application stability.
-
-- 🚀 **Actor-Based Distribution**: Building distributed multi-agent
-applications in a centralized programming manner for streamlined development.
-
-**Supported Model Libraries**
-
-AgentScope provides a list of `ModelWrapper` to support both local model
-services and third-party model APIs.
-
-| API                    | Task            | Model Wrapper                                                                                                                   | Configuration                                                                      | Some Supported Models                                           |
-|------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| OpenAI API             | Chat            | [`OpenAIChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/openai_model.py)                 |[guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#openai-api)  <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/openai_chat_template.json)       | gpt-4o, gpt-4, gpt-3.5-turbo, ...                               |
-|                        | Embedding       | [`OpenAIEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/openai_model.py)            | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#openai-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/openai_embedding_template.json)       | text-embedding-ada-002, ...                                     |
-|                        | DALL·E          | [`OpenAIDALLEWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/openai_model.py)                | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#openai-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/openai_dall_e_template.json)       | dall-e-2, dall-e-3                                              |
-| DashScope API          | Chat            | [`DashScopeChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/dashscope_model.py)           | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#dashscope-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/dashscope_chat_template.json)    | qwen-plus, qwen-max, ...                                        |
-|                        | Image Synthesis | [`DashScopeImageSynthesisWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/dashscope_model.py) | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#dashscope-api)  <br>[template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/dashscope_image_synthesis_template.json)    | wanx-v1                                                         |
-|                        | Text Embedding  | [`DashScopeTextEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/dashscope_model.py)  | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#dashscope-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/dashscope_text_embedding_template.json)    | text-embedding-v1, text-embedding-v2, ...                       |
-|                        | Multimodal      | [`DashScopeMultiModalWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/dashscope_model.py)     | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#dashscope-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/dashscope_multimodal_template.json)    | qwen-vl-max, qwen-vl-chat-v1, qwen-audio-chat                   |
-| Gemini API             | Chat            | [`GeminiChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/gemini_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#gemini-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/gemini_chat_template.json)       | gemini-pro, ...                                                 |
-|                        | Embedding       | [`GeminiEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/gemini_model.py)            | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#gemini-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/gemini_embedding_template.json)       | models/embedding-001, ...                                       |
-| ZhipuAI API             | Chat            | [`ZhipuAIChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/zhipu_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#zhipu-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/zhipu_chat_template.json)       | glm-4, ...                                                      |
-|                        | Embedding       | [`ZhipuAIEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/zhipu_model.py)            | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#zhipu-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/zhipu_embedding_template.json)       | embedding-2, ...                                                |
-| ollama                 | Chat            | [`OllamaChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/ollama_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#ollama-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/ollama_chat_template.json)       | llama3, llama2, Mistral, ...                                    |
-|                        | Embedding       | [`OllamaEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/ollama_model.py)            | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#ollama-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/ollama_embedding_template.json)       | llama2, Mistral, ...                                            |
-|                        | Generation      | [`OllamaGenerationWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/ollama_model.py)           | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#ollama-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/ollama_generate_template.json)       | llama2, Mistral, ...                                            |
-| LiteLLM API             | Chat            | [`LiteLLMChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/litellm_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#litellm-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/litellm_chat_template.json)       | [models supported by litellm](https://docs.litellm.ai/docs/)... |
-| Post Request based API | -               | [`PostAPIModelWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/post_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#post-request-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/postapi_model_config_template.json) | -                                                               |
+## 什么是AppWielder？
 
-**Supported Local Model Deployment**
+AppWielder 是一个基于大型语言模型（LLM）和代理（Agent）的创新性的 API 编排框架。该框架旨在通过运用 LLM 的高级推理功能，实现对不同应用程序（APP）提供的 API 接口的整合与协调。
+- AppWielder允许应用程序响应和执行基于自然语言的指令，极大提升了用户体验，并简化了应用程序与用户的交互流程。
 
-AgentScope enables developers to rapidly deploy local model services using
-the following libraries.
+  <img src="Assets/function.png" width=1000>
+  
+  > 上图展示了 AppWielder 如何增强应用程序的交互能力。具体而言，图片分为两部分，左半部分描述了传统完成任务时的问答和执行流程，右半部分展示了引入AppWielder后的完成任务的流程。传统流程中，当用户（User）需要在 App 中完成某项任务却不知道该如何操作时，他首先询问（Ask）LLM并且得到回答（Answer），于是用户对 App 发送命令（Command）并且获得其执行结果（Result），即完成了任务。引入 AppWielder 后的流程中，用户仅需使用自然语言向App输入需求（Requirement），便可得到执行结果（Result）完成任务。App 在 AppWielder 的协助下询问 LLM 用户意图并得知需要执行的命令，执行命令后返回结果。
 
-- [ollama (CPU inference)](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#ollama)
-- [Flask + Transformers](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#with-transformers-library)
-- [Flask + ModelScope](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#with-modelscope-library)
-- [FastChat](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#fastchat)
-- [vllm](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#vllm)
+- 任何应用程序厂商仅需在 App 上实现通信接口并且向 AppWielder 提交其支持的 API 清单，框架便能独立地探索并识别出完成用户指令所需的最佳 API 调用顺序。
 
-**Supported Services**
+  <img src="Assets/developer.png" width=1000>
 
-- Web Search
-- Data Query
-- Retrieval
-- Code Execution
-- File Operation
-- Text Processing
-- Multi Modality
-
-**Example Applications**
-
-- Model
-  - <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>[Using Llama3 in AgentScope](https://github.com/modelscope/agentscope/blob/main/examples/model_llama3)
-
-- Conversation
-  - [Basic Conversation](https://github.com/modelscope/agentscope/blob/main/examples/conversation_basic)
-  - [Autonomous Conversation with Mentions](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_mentions)
-  - [Self-Organizing Conversation](https://github.com/modelscope/agentscope/blob/main/examples/conversation_self_organizing)
-  - [Basic Conversation with LangChain library](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_langchain)
-  - [Conversation with ReAct Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_react_agent)
-  - [Conversation in Natural Language to Query SQL](https://github.com/modelscope/agentscope/blob/main/examples/conversation_nl2sql/)
-  - [Conversation with RAG Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_RAG_agents)
-  - <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>[Conversation with gpt-4o](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_gpt-4o)
-  - <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>[Conversation with Software Engineering Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_swe-agent/)
-  - <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>[Conversation with Customized Services](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_customized_services/)
+  > 上图展示了应用程序厂商利用 AppWielder 框架引入智能化过程中，应用程序开发者（App Developer）所要承担的工作以及 AppWielder 独立完成智能化的工作为用户需求编排最佳的API调用顺序的简要过程。 具体而言，应用程序开发者需要在 App 端开发与用户交互的前端以及与 AppWielder 后端（Backend）交互的通信接口。同时需要向 AppWielder 后端提供知识（Knowledge），其中知识包括 App 的 API文档和其它文档。API 文档应详细描述API的功能和参数信息。完成以上步骤后，App 便可实现与用户的智能交互。具体而言，App 首先转发用户输入（User Input）给AppWielder 后端。AppWielder 后端将用户输入和 API文档的信息整合，与LLM交互，以选择需要执行的API和确定任务状态。任务状态包括任务继续和任务终止，任务终止又分为任务成功和任务失败。如果任务继续，App 执行选定的 API，并将执行结果返回 AppWielder 后端。执行结果分为执行成功（Success）、执行失败（Failure）及可选的失败原因（Reason）。AppWielder 后端会继续把执行结果和 LLM 交互做出下一步的决策。若任务终止，则反馈结果给用户。
 
-- Game
-  - [Gomoku](https://github.com/modelscope/agentscope/blob/main/examples/game_gomoku)
-  - [Werewolf](https://github.com/modelscope/agentscope/blob/main/examples/game_werewolf)
+AppWielder 的核心竞争力在于其高度自动化的 API 编排逻辑以及易用的数据交互模式，这些都大幅降低了应用开发商在引入智能化过程中遇到的复杂性和开发周期，加快了应用程序功能的扩展与精进。
+此外，它还搭载了一个高度抽象化、极具弹性的 HTTP 交互接口，进一步促进了应用程序的互联互通。
+最终，AppWielder 的愿景是为用户和开发者带来一种更加自然、直觉化且效率高的操作模式，赋予应用程序以无与伦比的适应力，以满足用户各种多样化的需求。
 
-- Distribution
-  - [Distributed Conversation](https://github.com/modelscope/agentscope/blob/main/examples/distributed_conversation)
-  - [Distributed Debate](https://github.com/modelscope/agentscope/blob/main/examples/distributed_debate)
-  - [Distributed Parallel Optimization](https://github.com/modelscope/agentscope/blob/main/examples/distributed_parallel_optimization)
-  - [Distributed Large Scale Simulation](https://github.com/modelscope/agentscope/blob/main/examples/distributed_simulation)
+- 🔥 增强易用性：允许用户可通过简单的自然语言命令来直接控制你的应用程序，无需学习复杂的界面或命令集，即可使用提供的服务或内容。
 
-More models, services and examples are coming soon!
 
-## Installation
+- 🛠️ 轻松集成：开发者只需注册其应用程序的 API 清单，AppWielder 会自动负责后续的识别和编排工作，无需复杂编码工作。
 
-AgentScope requires **Python 3.9** or higher.
 
-***Note: This project is currently in active development, it's recommended to
-install AgentScope from source.***
+- 🚀 异步与并发处理：通过采用现代异步技术，AppWielder 强化了其对并发请求的支持，确保即使在多用户或多任务的高负载环境下，应用程序也能保持高效和响应迅速。
 
-### From source
 
-- Install AgentScope in editable mode:
+- 🌐 强大的 API 交互接口：AppWielder 设计了一套用户友好、稳固的 HTTP API 接口，这意味着与应用程序的交互可以无缝自由，同时确保数据传输的高效率和安全性。
 
-```bash
-# Pull the source code from GitHub
-git clone https://github.com/modelscope/agentscope.git
 
-# Install the package in editable mode
-cd agentscope
-pip install -e .
-```
+- 🤖 支持多种大型语言模型：AppWielder 能够很好地与多种大型语言模型进行集成，这意味着开发者可以根据需求和场景选择最适合的模型，以实现最优的自然语言理解和处理能力。
 
-- To build distributed multi-agent applications:
 
-```bash
-# On windows
-pip install -e .[distribute]
-# On mac
-pip install -e .\[distribute\]
-```
+- 📚 丰富的文档资源：AppWielder 提供了详尽的文档，其中包括快速入门指南、API参考手册、最佳实践案例和常见问题解答，帮助开发者轻松上手并充分利用框架的所有功能。
 
-### Using pip
 
-- Install AgentScope from pip:
+- 💾 任务流的持久化：任务流程可以持久存储在数据库中，这项功能方便了任务的监控和管理，使得开发者可以随时查看任务的状态和历史记录。
 
-```bash
-pip install agentscope --pre
-```
 
-## Quick Start
+- 🛢️ 智能缓存机制：通过先进的缓存技术，AppWielder 能够优化性能和响应速度。它智能地存储频繁请求的结果，减少了对外部大模型的调用次数（即将推出）。
 
-### Configuration
 
-In AgentScope, the model deployment and invocation are decoupled by
-`ModelWrapper`.
+- 🌟 Token优化：AppWielder 的优化算法能够智能的评估消息的可用性，降低令牌(token)的使用量，减少因API调用导致的开销（即将推出）。
 
-To use these model wrappers, you need to prepare a model config file as
-follows.
-
-```python
-model_config = {
-    # The identifies of your config and used model wrapper
-    "config_name": "{your_config_name}",          # The name to identify the config
-    "model_type": "{model_type}",                 # The type to identify the model wrapper
-
-    # Detailed parameters into initialize the model wrapper
-    # ...
-}
-```
+## 应用：基于AppWielder的VsCode插件
 
-Taking OpenAI Chat API as an example, the model configuration is as follows:
+我们实现了一个Visual Studio Code插件[SmarterVscode]()，它允许用户通过自然语言来操作VsCode支持的各种功能，下面是其支持的部分功能演示：
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around;">
+  <div>
+    <p><b>Tic-tac-toe Game</b></p>
+    <video width="320" height="240" controls>
+      <source src="https://www.example.com/path_to_video_1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div>
+    <p><b>Style Changing</b></p>
+    <video width="320" height="240" controls>
+      <source src="https://www.example.com/path_to_video_2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div>
+    <p><b>Theme Changing</b></p>
+    <video width="320" height="240" controls>
+      <source src="https://www.example.com/path_to_video_3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div>
+    <p><b>Enable auto saving</b></p>
+    <video width="320" height="240" controls>
+      <source src="https://code.alibaba-inc.com/lianggui.wlg/LLM4API-Assets/blob/main/autosave.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
 
-```python
-openai_model_config = {
-    "config_name": "my_openai_config",             # The name to identify the config
-    "model_type": "openai_chat",                   # The type to identify the model wrapper
+## 连接你的应用程序
 
-    # Detailed parameters into initialize the model wrapper
-    "model_name": "gpt-4",                         # The used model in openai API, e.g. gpt-4, gpt-3.5-turbo, etc.
-    "api_key": "xxx",                              # The API key for OpenAI API. If not set, env
-                                                   # variable OPENAI_API_KEY will be used.
-    "organization": "xxx",                         # The organization for OpenAI API. If not set, env
-                                                   # variable OPENAI_ORGANIZATION will be used.
-}
-```
+AppWielder 高度抽象了一套简易的接口来帮助用户将应用程序连接到 AppWielder 平台，从而允许用户通过自然语言来操纵你的应用程序。
+一个部署示意图如下：
 
-More details about how to set up local model services and prepare model
-configurations is in our
-[tutorial](https://modelscope.github.io/agentscope/index.html#welcome-to-agentscope-tutorial-hub).
+首先，你的应用程序需要提交一些必要的信息给AppWielder平台，以便AppWielder平台能够了解你的应用程序，并为你的应用程序提供服务。
+在收到用户请求，你将用户请求转发给AppWielder平台，AppWielder平台决定调用你的应用程序的哪一个API，并将对应的API和参数返回给你的应用程序，你的应用程序执行API调用，并将结果再次返回给AppWielder平台，并等待获得下一个API调用的指令。
+上述交互过程将持续迭代直到AppWielder反馈一个任务成功或者任务失败的指令。
 
-### Create Agents
+最后，基于AppWielder平台，你仅仅需要完成以下几个步骤，就可以让你的应用程序支持自然语言操作：
 
-Create built-in user and assistant agents as follows.
+1. 提交你的应用程序支持调用的API清单（必选），以及一些可选的说明文档。
+2. 在你的应用程序中实现一个简单的HTTP服务，用于向AppWielder平台发送用户请求，反馈API调用的结果，以及接受AppWielder平台的指令。
 
-```python
-from agentscope.agents import DialogAgent, UserAgent
-import agentscope
+注意：AppWielder不关注你的应用程序是如何与用户交互的，可能是一个简单的输入框，或者半幅的对话界面，这完全取决于你的应用程序的设计。
 
-# Load model configs
-agentscope.init(model_configs="./model_configs.json")
-
-# Create a dialog agent and a user agent
-dialog_agent = DialogAgent(name="assistant",
-                           model_config_name="my_openai_config")
-user_agent = UserAgent()
-```
-
-### Construct Conversation
-
-In AgentScope, **message** is the bridge among agents, which is a
-**dict** that contains two necessary fields `name` and `content` and an
-optional field `url` to local files (image, video or audio) or website.
-
-```python
-from agentscope.message import Msg
-
-x = Msg(name="Alice", content="Hi!")
-x = Msg("Bob", "What about this picture I took?", url="/path/to/picture.jpg")
-```
-
-Start a conversation between two agents (e.g. dialog_agent and user_agent)
-with the following code:
-
-```python
-x = None
-while True:
-    x = dialog_agent(x)
-    x = user_agent(x)
-    if x.content == "exit":  # user input "exit" to exit the conversation_basic
-        break
-```
-
-### AgentScope Studio
-
-AgentScope provides an easy-to-use runtime user interface capable of
-displaying multimodal output on the front end, including text, images,
-audio and video.
-
-Refer to our [tutorial](https://modelscope.github.io/agentscope/en/tutorial/209-gui.html) for more details.
-
-<h5 align="center">
-<img src="https://img.alicdn.com/imgextra/i4/O1CN015kjnkd1xdwJoNxqLZ_!!6000000006467-0-tps-3452-1984.jpg" width="600" alt="agentscope-logo">
-</h5>
-
-## Tutorial
-
-- [About AgentScope](https://modelscope.github.io/agentscope/zh_CN/tutorial/101-agentscope.html)
-- [Installation](https://modelscope.github.io/agentscope/zh_CN/tutorial/102-installation.html)
-- [Quick Start](https://modelscope.github.io/agentscope/zh_CN/tutorial/103-example.html)
-- [Model](https://modelscope.github.io/agentscope/zh_CN/tutorial/203-model.html)
-- [Prompt Engineering](https://modelscope.github.io/agentscope/zh_CN/tutorial/206-prompt.html)
-- [Agent](https://modelscope.github.io/agentscope/zh_CN/tutorial/201-agent.html)
-- [Memory](https://modelscope.github.io/agentscope/zh_CN/tutorial/205-memory.html)
-- [Response Parser](https://modelscope.github.io/agentscope/zh_CN/tutorial/203-parser.html)
-- [Tool](https://modelscope.github.io/agentscope/zh_CN/tutorial/204-service.html)
-- [Pipeline and MsgHub](https://modelscope.github.io/agentscope/zh_CN/tutorial/202-pipeline.html)
-- [Distribution](https://modelscope.github.io/agentscope/zh_CN/tutorial/208-distribute.html)
-- [AgentScope Studio](https://modelscope.github.io/agentscope/zh_CN/tutorial/209-gui.html)
-- [Logging](https://modelscope.github.io/agentscope/zh_CN/tutorial/105-logging.html)
-- [Monitor](https://modelscope.github.io/agentscope/zh_CN/tutorial/207-monitor.html)
-- [Example: Werewolf Game](https://modelscope.github.io/agentscope/zh_CN/tutorial/104-usecase.html)
-
-## License
-
-AgentScope is released under Apache License 2.0.
-
-## Contributing
-
-Contributions are always welcomed!
-
-We provide a developer version with additional pre-commit hooks to perform
-checks compared to the official version:
-
-```bash
-# For windows
-pip install -e .[dev]
-# For mac
-pip install -e .\[dev\]
-
-# Install pre-commit hooks
-pre-commit install
-```
-
-Please refer to our [Contribution Guide](https://modelscope.github.io/agentscope/en/tutorial/302-contribute.html) for more details.
-
-## References
-
-If you find our work helpful for your research or application, please
-cite [our paper](https://arxiv.org/abs/2402.14034):
-
-```
-@article{agentscope,
-  author  = {Dawei Gao and
-             Zitao Li and
-             Xuchen Pan and
-             Weirui Kuang and
-             Zhijian Ma and
-             Bingchen Qian and
-             Fei Wei and
-             Wenhao Zhang and
-             Yuexiang Xie and
-             Daoyuan Chen and
-             Liuyi Yao and
-             Hongyi Peng and
-             Zeyu Zhang and
-             Lin Zhu and
-             Chen Cheng and
-             Hongzhu Shi and
-             Yaliang Li and
-             Bolin Ding and
-             Jingren Zhou},
-  title   = {AgentScope: A Flexible yet Robust Multi-Agent Platform},
-  journal = {CoRR},
-  volume  = {abs/2402.14034},
-  year    = {2024},
-}
-```
+## 文档
+
+[文档](https://modelscope.github.io/agentscope/#welcome-to-agentscope-tutorial-hub)记录了更多关于AppWielder的使用方法，你能参考这些文档来更好的使用AppWielder。
+
+## 许可证
+
+AppWielder根据Apache License 2.0发布。
+
+## 贡献
+
+欢迎参与到AppWielder的构建中！
+请参阅我们的[贡献指南](https://modelscope.github.io/agentscope/zh_CN/tutorial/302-contribute.html)了解更多细节。
+
