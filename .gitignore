@@ -19,7 +19,6 @@ build/**
 dist/**
 *.pdf
 *.xlsx
-*.png
 !fig/*
 cacheData/**
 algorithm_examples/ExampleData/**
