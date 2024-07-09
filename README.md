@@ -1,232 +1,361 @@
-# <center><font color=green size=10>PilotScope</font></center>
+English | [**中文**](https://github.com/modelscope/agentscope/blob/main/README_ZH.md)
 
-<div style="text-align:center">
-  <img src="fig/banner.png", alt="PilotScope" />
+<h3 align="center"><img src="Assets/logo.png" height="64"><br>AppWielder: 允许自然语言来控制你的应用程序</h3>
+
+<div align="center">
+
+[![](https://img.shields.io/badge/python-3.9+-blue)](https://pypi.org/project/agentscope/)
+[![](https://img.shields.io/badge/Docs-English%7C%E4%B8%AD%E6%96%87-blue?logo=markdown)](https://modelscope.github.io/agentscope/#welcome-to-agentscope-tutorial-hub)
+[![](https://img.shields.io/badge/ModelScope-Demos-4e29ff.svg?logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjI0IDEyMS4zMyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxwYXRoIGQ9Im0wIDQ3Ljg0aDI1LjY1djI1LjY1aC0yNS42NXoiIGZpbGw9IiM2MjRhZmYiIC8+Cgk8cGF0aCBkPSJtOTkuMTQgNzMuNDloMjUuNjV2MjUuNjVoLTI1LjY1eiIgZmlsbD0iIzYyNGFmZiIgLz4KCTxwYXRoIGQ9Im0xNzYuMDkgOTkuMTRoLTI1LjY1djIyLjE5aDQ3Ljg0di00Ny44NGgtMjIuMTl6IiBmaWxsPSIjNjI0YWZmIiAvPgoJPHBhdGggZD0ibTEyNC43OSA0Ny44NGgyNS42NXYyNS42NWgtMjUuNjV6IiBmaWxsPSIjMzZjZmQxIiAvPgoJPHBhdGggZD0ibTAgMjIuMTloMjUuNjV2MjUuNjVoLTI1LjY1eiIgZmlsbD0iIzM2Y2ZkMSIgLz4KCTxwYXRoIGQ9Im0xOTguMjggNDcuODRoMjUuNjV2MjUuNjVoLTI1LjY1eiIgZmlsbD0iIzYyNGFmZiIgLz4KCTxwYXRoIGQ9Im0xOTguMjggMjIuMTloMjUuNjV2MjUuNjVoLTI1LjY1eiIgZmlsbD0iIzM2Y2ZkMSIgLz4KCTxwYXRoIGQ9Im0xNTAuNDQgMHYyMi4xOWgyNS42NXYyNS42NWgyMi4xOXYtNDcuODR6IiBmaWxsPSIjNjI0YWZmIiAvPgoJPHBhdGggZD0ibTczLjQ5IDQ3Ljg0aDI1LjY1djI1LjY1aC0yNS42NXoiIGZpbGw9IiMzNmNmZDEiIC8+Cgk8cGF0aCBkPSJtNDcuODQgMjIuMTloMjUuNjV2LTIyLjE5aC00Ny44NHY0Ny44NGgyMi4xOXoiIGZpbGw9IiM2MjRhZmYiIC8+Cgk8cGF0aCBkPSJtNDcuODQgNzMuNDloLTIyLjE5djQ3Ljg0aDQ3Ljg0di0yMi4xOWgtMjUuNjV6IiBmaWxsPSIjNjI0YWZmIiAvPgo8L3N2Zz4K)](https://modelscope.cn/studios?name=agentscope&page=1&sort=latest)
+[![](https://img.shields.io/badge/license-Apache--2.0-black)](./LICENSE)
+[![](https://img.shields.io/badge/Contribute-Welcome-green)](https://modelscope.github.io/agentscope/tutorial/contribute.html)
+[![](https://img.shields.io/github/stars/gencay/vscode-chatgpt?color=blue&label=Github%20Stars)]()
+
 </div>
 
-![](https://img.shields.io/badge/language-Python-blue.svg)
-![](https://img.shields.io/badge/language-C-blue.svg)
-![](https://img.shields.io/badge/language-Scala-blue.svg)
-![](https://img.shields.io/badge/license-Apache_2.0-000000.svg) 
-![](https://img.shields.io/badge/contributions-Welcome-brightgreen.svg)
+## News
 
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-06-14]** A new prompt tuning module is available in AgentScope to help developers generate and optimize the agents' system prompts! Refer to our [tutorial](https://modelscope.github.io/agentscope/en/tutorial/209-prompt_opt.html) for more details!
 
-[![](https://img.shields.io/badge/docs-Usage_Guideline-purple.svg)](https://woodybryant.github.io/PilotScopeDoc.io/)
-[![](https://img.shields.io/badge/docs-Develop_Guideline-purple.svg)](https://woodybryant.github.io/PilotScopeDoc.io/references/core_modules.html)
-[![](https://img.shields.io/badge/docs-API_Reference-purple.svg)](https://woodybryant.github.io/PilotScopeDoc.io/references/api.html)
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-06-11]** The RAG functionality is available for agents in **AgentScope** now! [**A quick introduction to RAG in AgentScope**](https://modelscope.github.io/agentscope/en/tutorial/210-rag.html) can help you equip your agent with external knowledge!
 
-[![](https://img.shields.io/badge/AI4DB_driver-Knob_Tuning-4E29FF.svg)](https://woodybryant.github.io/PilotScopeDoc.io/references/example.html#knob-tuning-task-example)
-[![](https://img.shields.io/badge/AI4DB_driver-Index_Recommendation-4E29FF.svg)](https://woodybryant.github.io/PilotScopeDoc.io/references/example.html#index-recommendation-task-example)
-[![](https://img.shields.io/badge/AI4DB_driver-Cardinality_Estimation-4E29FF.svg)](https://woodybryant.github.io/PilotScopeDoc.io/references/example.html#cardinality-estimation-task-example)
-[![](https://img.shields.io/badge/AI4DB_driver-E2E_Query_Optimizer-4E29FF.svg)](https://woodybryant.github.io/PilotScopeDoc.io/references/example.html#query-optimizer-task-example)
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-06-09]** We release **AgentScope** v0.0.5 now! In this new version, [**AgentScope Workstation**](https://modelscope.github.io/agentscope/en/tutorial/209-gui.html) (the online version is running on [agentscope.io](https://agentscope.io)) is open-sourced with the refactored [**AgentScope Studio**](https://modelscope.github.io/agentscope/en/tutorial/209-gui.html)!
 
-[![](https://img.shields.io/badge/database-PostgreSQL_13.1-FFD21E.svg)](https://www.postgresql.org/)
-[![](https://img.shields.io/badge/database-Spark_3.3.2-FFD21E.svg)](https://spark.apache.org/)
+<h5 align="center">
+<img src="https://img.alicdn.com/imgextra/i1/O1CN01RXAVVn1zUtjXVvuqS_!!6000000006718-1-tps-3116-1852.gif" width="600" alt="agentscope-logo">
+</h5>
 
-**PilotScope** is a middleware to bridge the gaps of deploying AI4DB (Artificial Intelligence for Databases) algorithms
-into actual database systems. It aims at hindering the underlying details of different databases so that an AI4DB driver
-could steer any database in a unified manner. By applying PilotScope, we obtain the following benefits:
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-05-24]** We are pleased to announce that features related to the **AgentScope Workstation** will soon be open-sourced! The online website services are temporarily offline. The online website service will be upgraded and back online shortly. Stay tuned...
 
-* The DB users could experience any AI4DB algorithm as a plug-in unit on their databases with little cost. The cloud
-  computing service providers could operate and maintain AI4DB algorithms on their database products as a service to
-  users. **(More Convenient for Usage! 👏👏👏)**
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-05-15]** A new **Parser Module** for **formatted response** is added in AgentScope! Refer to our [tutorial](https://modelscope.github.io/agentscope/en/tutorial/203-parser.html) for more details. The [`DictDialogAgent`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/agents/dict_dialog_agent.py) and [werewolf game](https://github.com/modelscope/agentscope/tree/main/examples/game_werewolf) example are updated simultaneously.
 
-* The ML researchers could easily benchmark and iterate their AI4DB algorithms in practical scenarios. **(Much Faster to
-  Iterate! ⬆️⬆️⬆️)**
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
 
-* The ML and DB developers are liberated from learning the details in other side. They could play their own strengths
-  to write the codes in their own sides. **(More Freedom to Develop! 🏄‍♀️🏄‍♀️🏄‍♀️)**
+<https://github.com/qbc2016/AgentScope/assets/22984042/22d45aee-3470-4923-850f-348a5b0faaa7>
 
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-05-14]** Dear AgentScope users, we are conducting a survey on **AgentScope Workstation & Copilot** user experience. We currently need your valuable feedback to help us improve the experience of AgentScope's Drag & Drop multi-agent application development and Copilot. Your feedback is valuable and the survey will take about 3~5 minutes. Please click [URL](https://survey.aliyun.com/apps/zhiliao/vgpTppn22) to participate in questionnaire surveys. Thank you very much for your support and contribution!
 
-* All contributors could extend PilotScope to support more AI4DB algorithms, more databases and more functions. **(We
-  highly encourage this! 😊😊😊)**
+- <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>**[2024-05-14]** AgentScope supports **gpt-4o** as well as other OpenAI vision models now! Try gpt-4o with its [model configuration](./examples/model_configs_template/openai_chat_template.json) and new example [Conversation with gpt-4o](./examples/conversation_with_gpt-4o)!
 
-| [Code Structure](#code-structure) | [Installation](#installation) | [Feature Overview](#feature-overview) |
- [Documentation](#documentation) | [License](#license) | [Reference](#reference)
-| [Contributing](#contributing) |
+- **[2024-04-30]** We release **AgentScope** v0.0.4 now!
+
+- **[2024-04-27]** [AgentScope Workstation](https://agentscope.aliyun.com/) is now online! You are welcome to try building your multi-agent application simply with our *drag-and-drop platform* and ask our *copilot* questions about AgentScope!
+
+- **[2024-04-19]** AgentScope supports Llama3 now! We provide [scripts](https://github.com/modelscope/agentscope/blob/main/examples/model_llama3) and example [model configuration](https://github.com/modelscope/agentscope/blob/main/examples/model_llama3) for quick set-up. Feel free to try llama3 in our examples!
+
+- **[2024-04-06]** We release **AgentScope** v0.0.3 now!
+
+- **[2024-04-06]** New examples [Gomoku](https://github.com/modelscope/agentscope/blob/main/examples/game_gomoku), [Conversation with ReAct Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_react_agent), [Conversation with RAG Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_RAG_agents) and [Distributed Parallel Optimization](https://github.com/modelscope/agentscope/blob/main/examples/distributed_parallel_optimization) are available now!
+
+- **[2024-03-19]** We release **AgentScope** v0.0.2 now! In this new version,
+AgentScope supports [ollama](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#supported-models)(A local CPU inference engine), [DashScope](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#supported-models) and Google [Gemini](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#supported-models) APIs.
+
+- **[2024-03-19]** New examples ["Autonomous Conversation with Mentions"](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_mentions) and ["Basic Conversation with LangChain library"](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_langchain) are available now!
+
+- **[2024-03-19]** The [Chinese tutorial](https://modelscope.github.io/agentscope/zh_CN/index.html) of AgentScope is online now!
+
+- **[2024-02-27]** We release **AgentScope v0.0.1** now, which is also
+available in [PyPI](https://pypi.org/project/agentscope/)!
+- **[2024-02-14]** We release our paper "AgentScope: A Flexible yet Robust
+Multi-Agent Platform" in [arXiv](https://arxiv.org/abs/2402.14034) now!
 
 ---
-**News**
 
-* 🎉 [2023-12-15] Our **[paper](paper)** on PilotScope has been accepted by VLDB 2024!
+## What's AgentScope?
 
----
-<!-- ## News -->
+AgentScope is an innovative multi-agent platform designed to empower developers
+to build multi-agent applications with large-scale models.
+It features three high-level capabilities:
 
-## Code Structure
+- 🤝 **Easy-to-Use**: Designed for developers, with [fruitful components](https://modelscope.github.io/agentscope/en/tutorial/204-service.html#),
+[comprehensive documentation](https://modelscope.github.io/agentscope/en/index.html), and broad compatibility. Besides, [AgentScope Workstation](https://agentscope.aliyun.com/) provides a *drag-and-drop programming platform* and a *copilot* for beginners of AgentScope!
 
-```
-PilotScope/
-├── algorithm_examples                         # Algorithm examples
-├── fig                                        # Saved some Figures
-├── paper                                 
-│   ├── PilotScope.pdf                         # Paper of PilotScope
-├── pilotscope
-│   ├── Anchor                                 # Base push and pull anchors for implementing push and pull opearators       
-│   │   ├── AnchorHandler.py
-│   │   ├── AnchorEnum.py
-│   │   ├── AnchorTransData.py
-│   │   ├── ...
-│   ├── Common                                 # Useful tools for PilotScope
-│   │   ├── Index.py
-│   │   ├── CardMetricCalc.py                   
-│   │   ├── ...
-│   ├── DBController                           # The implemenation of DB controllers for different databased
-│   │   ├── BaseDBController.py
-│   │   ├── PostgreSQLController.py
-│   │   ├── ...
-│   ├── DBInteractor                           # The funtionalities for interaction with database
-│   │   ├── HttpInteractorReceiver.py
-│   │   ├── PilotDataInteractor.py
-│   │   ├── ...
-│   ├── DataManager                            # The management of data
-│   │   ├── DataManager.py
-│   │   └── TableVisitedTracker.py
-│   ├── Dataset                                # An easy-to-use API for loading benchmarks
-│   │   ├── BaseDataset.py
-│   │   ├── Imdb
-│   │   ├── ...
-│   ├── Exception                              # Some exception which may occur in the lifecycle of pilotscope
-│   │   └── Exception.py
-│   ├── Factory                                # Factory patterns
-│   │   ├── AnchorHandlerFactory.py
-│   │   ├── DBControllerFectory.py
-│   │   ├── ...
-│   ├── PilotConfig.py                         # Configurations of PilotScope
-│   ├── PilotEnum.py                           # Some related enumeration types
-│   ├── PilotEvent.py                          # Some predefined events
-│   ├── PilotModel.py                          # Base models of pilotscope 
-│   ├── PilotScheduler.py                      # Sheduling data traing、inference、collection push-and-pull and so on
-│   ├── PilotSysConfig.py                      # System configuration of PilotScope 
-│   └── PilotTransData.py                      # A unified data object for data collection
-├── requirements.txt                           # Requirements for PilotScope
-├── setup.py                                   # Setup for PilotScope
-├── test_example_algorithms                    # Examples of some tasks, such as index recommendation, knob tuning, etc.
-└── test_pilotscope                            # Unittests of PilotScope
-```
+- ✅ **High Robustness**: Supporting customized fault-tolerance controls and
+retry mechanisms to enhance application stability.
+
+- 🚀 **Actor-Based Distribution**: Building distributed multi-agent
+applications in a centralized programming manner for streamlined development.
+
+**Supported Model Libraries**
+
+AgentScope provides a list of `ModelWrapper` to support both local model
+services and third-party model APIs.
+
+| API                    | Task            | Model Wrapper                                                                                                                   | Configuration                                                                      | Some Supported Models                                           |
+|------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| OpenAI API             | Chat            | [`OpenAIChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/openai_model.py)                 |[guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#openai-api)  <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/openai_chat_template.json)       | gpt-4o, gpt-4, gpt-3.5-turbo, ...                               |
+|                        | Embedding       | [`OpenAIEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/openai_model.py)            | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#openai-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/openai_embedding_template.json)       | text-embedding-ada-002, ...                                     |
+|                        | DALL·E          | [`OpenAIDALLEWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/openai_model.py)                | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#openai-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/openai_dall_e_template.json)       | dall-e-2, dall-e-3                                              |
+| DashScope API          | Chat            | [`DashScopeChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/dashscope_model.py)           | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#dashscope-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/dashscope_chat_template.json)    | qwen-plus, qwen-max, ...                                        |
+|                        | Image Synthesis | [`DashScopeImageSynthesisWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/dashscope_model.py) | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#dashscope-api)  <br>[template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/dashscope_image_synthesis_template.json)    | wanx-v1                                                         |
+|                        | Text Embedding  | [`DashScopeTextEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/dashscope_model.py)  | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#dashscope-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/dashscope_text_embedding_template.json)    | text-embedding-v1, text-embedding-v2, ...                       |
+|                        | Multimodal      | [`DashScopeMultiModalWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/dashscope_model.py)     | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#dashscope-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/dashscope_multimodal_template.json)    | qwen-vl-max, qwen-vl-chat-v1, qwen-audio-chat                   |
+| Gemini API             | Chat            | [`GeminiChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/gemini_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#gemini-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/gemini_chat_template.json)       | gemini-pro, ...                                                 |
+|                        | Embedding       | [`GeminiEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/gemini_model.py)            | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#gemini-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/gemini_embedding_template.json)       | models/embedding-001, ...                                       |
+| ZhipuAI API             | Chat            | [`ZhipuAIChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/zhipu_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#zhipu-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/zhipu_chat_template.json)       | glm-4, ...                                                      |
+|                        | Embedding       | [`ZhipuAIEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/zhipu_model.py)            | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#zhipu-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/zhipu_embedding_template.json)       | embedding-2, ...                                                |
+| ollama                 | Chat            | [`OllamaChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/ollama_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#ollama-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/ollama_chat_template.json)       | llama3, llama2, Mistral, ...                                    |
+|                        | Embedding       | [`OllamaEmbeddingWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/ollama_model.py)            | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#ollama-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/ollama_embedding_template.json)       | llama2, Mistral, ...                                            |
+|                        | Generation      | [`OllamaGenerationWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/ollama_model.py)           | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#ollama-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/ollama_generate_template.json)       | llama2, Mistral, ...                                            |
+| LiteLLM API             | Chat            | [`LiteLLMChatWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/litellm_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#litellm-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/litellm_chat_template.json)       | [models supported by litellm](https://docs.litellm.ai/docs/)... |
+| Post Request based API | -               | [`PostAPIModelWrapper`](https://github.com/modelscope/agentscope/blob/main/src/agentscope/models/post_model.py)                 | [guidance](https://modelscope.github.io/agentscope/en/tutorial/203-model.html#post-request-api) <br> [template](https://github.com/modelscope/agentscope/blob/main/examples/model_configs_template/postapi_model_config_template.json) | -                                                               |
+
+**Supported Local Model Deployment**
+
+AgentScope enables developers to rapidly deploy local model services using
+the following libraries.
+
+- [ollama (CPU inference)](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#ollama)
+- [Flask + Transformers](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#with-transformers-library)
+- [Flask + ModelScope](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#with-modelscope-library)
+- [FastChat](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#fastchat)
+- [vllm](https://github.com/modelscope/agentscope/blob/main/scripts/README.md#vllm)
+
+**Supported Services**
+
+- Web Search
+- Data Query
+- Retrieval
+- Code Execution
+- File Operation
+- Text Processing
+- Multi Modality
+
+**Example Applications**
+
+- Model
+  - <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>[Using Llama3 in AgentScope](https://github.com/modelscope/agentscope/blob/main/examples/model_llama3)
+
+- Conversation
+  - [Basic Conversation](https://github.com/modelscope/agentscope/blob/main/examples/conversation_basic)
+  - [Autonomous Conversation with Mentions](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_mentions)
+  - [Self-Organizing Conversation](https://github.com/modelscope/agentscope/blob/main/examples/conversation_self_organizing)
+  - [Basic Conversation with LangChain library](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_langchain)
+  - [Conversation with ReAct Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_react_agent)
+  - [Conversation in Natural Language to Query SQL](https://github.com/modelscope/agentscope/blob/main/examples/conversation_nl2sql/)
+  - [Conversation with RAG Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_RAG_agents)
+  - <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>[Conversation with gpt-4o](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_gpt-4o)
+  - <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>[Conversation with Software Engineering Agent](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_swe-agent/)
+  - <img src="https://img.alicdn.com/imgextra/i3/O1CN01SFL0Gu26nrQBFKXFR_!!6000000007707-2-tps-500-500.png" alt="new" width="30" height="30"/>[Conversation with Customized Services](https://github.com/modelscope/agentscope/blob/main/examples/conversation_with_customized_services/)
+
+- Game
+  - [Gomoku](https://github.com/modelscope/agentscope/blob/main/examples/game_gomoku)
+  - [Werewolf](https://github.com/modelscope/agentscope/blob/main/examples/game_werewolf)
+
+- Distribution
+  - [Distributed Conversation](https://github.com/modelscope/agentscope/blob/main/examples/distributed_conversation)
+  - [Distributed Debate](https://github.com/modelscope/agentscope/blob/main/examples/distributed_debate)
+  - [Distributed Parallel Optimization](https://github.com/modelscope/agentscope/blob/main/examples/distributed_parallel_optimization)
+  - [Distributed Large Scale Simulation](https://github.com/modelscope/agentscope/blob/main/examples/distributed_simulation)
+
+More models, services and examples are coming soon!
 
 ## Installation
 
-Required Software Versions:
+AgentScope requires **Python 3.9** or higher.
 
-- Python: 3.8
-- PostgreSQL: 13.1
-- Apache Spark: 3.3.2
+***Note: This project is currently in active development, it's recommended to
+install AgentScope from source.***
 
-You can install PilotScope Core and modified databases (e.g., PostgreSQL and Spark) following
-the [documentation](https://woodybryant.github.io/PilotScopeDoc.io/).
+### From source
 
-## Feature Overview
+- Install AgentScope in editable mode:
 
-The components of PilotScope Core in ML side can be divided into two categories: Database Components and Deployment
-Components. The Database Components are used to facilitate data exchange and control over the database, while the Deployment
-Components are used to facilitate the automatic application of custom AI algorithms to each incoming SQL query.
+```bash
+# Pull the source code from GitHub
+git clone https://github.com/modelscope/agentscope.git
 
-A high-level overview of the PilotScope Core components is shown in the following figure.
+# Install the package in editable mode
+cd agentscope
+pip install -e .
+```
 
-<div align="center">
-  <img src="fig/pilotscope_module_framework.png" alt="PilotScope" style="width: 80%;" />
-</div>
+- To build distributed multi-agent applications:
 
-The Database Components are highlighted in Yellow, while the Deployment Components are highlighted in green. We will
-discuss each of these components in detail in the [documentation](https://woodybryant.github.io/PilotScopeDoc.io/).
+```bash
+# On windows
+pip install -e .[distribute]
+# On mac
+pip install -e .\[distribute\]
+```
 
-### An Example for Data Interaction with Database
-The `PilotConfig` class is utilized to configure the PilotScope application, such as the database credentials for
-establishing a connection.
-We first create an instance of the PilotConfig where we can specify the database credentials and connected database
-name, i.e., stats_tiny.
+### Using pip
+
+- Install AgentScope from pip:
+
+```bash
+pip install agentscope --pre
+```
+
+## Quick Start
+
+### Configuration
+
+In AgentScope, the model deployment and invocation are decoupled by
+`ModelWrapper`.
+
+To use these model wrappers, you need to prepare a model config file as
+follows.
 
 ```python
-# Example of PilotConfig
-config: PilotConfig = PostgreSQLConfig(host="localhost", port="5432", user="postgres", pwd="postgres")
-# You can also instantiate a PilotConfig for other DBMSes. e.g. 
-# config:PilotConfig = SparkConfig()
-config.db = "stats_tiny"
-# Configure PilotScope here, e.g. changing the name of database you want to connect to.
+model_config = {
+    # The identifies of your config and used model wrapper
+    "config_name": "{your_config_name}",          # The name to identify the config
+    "model_type": "{model_type}",                 # The type to identify the model wrapper
+
+    # Detailed parameters into initialize the model wrapper
+    # ...
+}
 ```
 
-The PilotDataInteractor class provides a flexible workflow for data exchange. It includes three main functions: `push`,
-`pull`, and `execute`.
-These functions assist the user in collecting data (pull operators) after setting additional data (push operators) in a
-single query execution process.
-
-For instance, if the user wants to collect the execution time, estimated cost, and cardinality of all sub-queries within
-a query. Here is an example code:
+Taking OpenAI Chat API as an example, the model configuration is as follows:
 
 ```python
-sql = "select count(*) from votes as v, badges as b, users as u where u.id = v.userid and v.userid = b.userid and u.downvotes>=0 and u.downvotes<=0"
-data_interactor = PilotDataInteractor(config)
-data_interactor.pull_estimated_cost()
-data_interactor.pull_subquery_card()
-data_interactor.pull_execution_time()
-data = data_interactor.execute(sql)
-print(data)
+openai_model_config = {
+    "config_name": "my_openai_config",             # The name to identify the config
+    "model_type": "openai_chat",                   # The type to identify the model wrapper
+
+    # Detailed parameters into initialize the model wrapper
+    "model_name": "gpt-4",                         # The used model in openai API, e.g. gpt-4, gpt-3.5-turbo, etc.
+    "api_key": "xxx",                              # The API key for OpenAI API. If not set, env
+                                                   # variable OPENAI_API_KEY will be used.
+    "organization": "xxx",                         # The organization for OpenAI API. If not set, env
+                                                   # variable OPENAI_ORGANIZATION will be used.
+}
 ```
 
-The `execute` function returns a `PilotTransData` object named `data`, which serves as a placeholder for the collected
-data.
-Each member of this object represents a specific data point, and the values corresponding to the previously
-registered `pull` operators will be filled in, while the other values will remain as None.
+More details about how to set up local model services and prepare model
+configurations is in our
+[tutorial](https://modelscope.github.io/agentscope/index.html#welcome-to-agentscope-tutorial-hub).
 
-```
-execution_time: 0.00173
-estimated_cost: 98.27
-subquery_2_card: {'select count(*) from votes v': 3280.0, 'select count(*) from badges b': 798.0, 'select count(*) from users u where u.downvotes >= 0 and u.downvotes <= 0': 399.000006, 'select count(*) from votes v, badges b where v.userid = b.userid;': 368.609177, 'select count(*) from votes v, users u where v.userid = u.id and u.downvotes >= 0 and u.downvotes <= 0;': 333.655156, 'select count(*) from badges b, users u where b.userid = u.id and u.downvotes >= 0 and u.downvotes <= 0;': 425.102804, 'select count(*) from votes v, badges b, users u where v.userid = u.id and v.userid = b.userid and u.downvotes >= 0 and u.downvotes <= 0;': 37.536205}
-buffercache: None
-...
-```
+### Create Agents
 
-In certain scenarios, when the user wants to collect the execution time of a SQL query after applying a new
-cardinality (e.g., scaling the original cardinality by 100) for all sub-queries within the SQL,
-the PilotDataInteractor provides push function to achieve this.
-Here is an example code:
+Create built-in user and assistant agents as follows.
 
 ```python
-# Example of PilotDataInteractor (registering operators again and execution)
-data_interactor.push_card({k: v * 100 for k, v in data.subquery_2_card.items()})
-data_interactor.pull_estimated_cost()
-data_interactor.pull_execution_time()
-new_data = data_interactor.execute(sql)
-print(new_data)
+from agentscope.agents import DialogAgent, UserAgent
+import agentscope
+
+# Load model configs
+agentscope.init(model_configs="./model_configs.json")
+
+# Create a dialog agent and a user agent
+dialog_agent = DialogAgent(name="assistant",
+                           model_config_name="my_openai_config")
+user_agent = UserAgent()
 ```
 
-By default, each call to the execute function will reset any previously registered operators.
-Therefore, we need to push these new cardinalities and re-register the pull operators to collect the estimated cost and
-execution time.
-In this scenario, the new cardinalities will replace the ones estimated by the database's cardinality estimator.
-As a result, the partial result of the `new_data` object will be significantly different from the result of the `data`
-object,
-mainly due to the variation in cardinality values.
+### Construct Conversation
 
+In AgentScope, **message** is the bridge among agents, which is a
+**dict** that contains two necessary fields `name` and `content` and an
+optional field `url` to local files (image, video or audio) or website.
+
+```python
+from agentscope.message import Msg
+
+x = Msg(name="Alice", content="Hi!")
+x = Msg("Bob", "What about this picture I took?", url="/path/to/picture.jpg")
 ```
-execution_time: 0.00208
-estimated_cost: 37709.05
-...
+
+Start a conversation between two agents (e.g. dialog_agent and user_agent)
+with the following code:
+
+```python
+x = None
+while True:
+    x = dialog_agent(x)
+    x = user_agent(x)
+    if x.content == "exit":  # user input "exit" to exit the conversation_basic
+        break
 ```
-More functionalities please refer to the [documentation](https://woodybryant.github.io/PilotScopeDoc.io/).
 
+### AgentScope Studio
 
-## Documentation
+AgentScope provides an easy-to-use runtime user interface capable of
+displaying multimodal output on the front end, including text, images,
+audio and video.
 
-The classes and methods of PilotScope have been well documented. You can find the documentation
-in [documentation](https://woodybryant.github.io/PilotScopeDoc.io/).
+Refer to our [tutorial](https://modelscope.github.io/agentscope/en/tutorial/209-gui.html) for more details.
+
+<h5 align="center">
+<img src="https://img.alicdn.com/imgextra/i4/O1CN015kjnkd1xdwJoNxqLZ_!!6000000006467-0-tps-3452-1984.jpg" width="600" alt="agentscope-logo">
+</h5>
+
+## Tutorial
+
+- [About AgentScope](https://modelscope.github.io/agentscope/zh_CN/tutorial/101-agentscope.html)
+- [Installation](https://modelscope.github.io/agentscope/zh_CN/tutorial/102-installation.html)
+- [Quick Start](https://modelscope.github.io/agentscope/zh_CN/tutorial/103-example.html)
+- [Model](https://modelscope.github.io/agentscope/zh_CN/tutorial/203-model.html)
+- [Prompt Engineering](https://modelscope.github.io/agentscope/zh_CN/tutorial/206-prompt.html)
+- [Agent](https://modelscope.github.io/agentscope/zh_CN/tutorial/201-agent.html)
+- [Memory](https://modelscope.github.io/agentscope/zh_CN/tutorial/205-memory.html)
+- [Response Parser](https://modelscope.github.io/agentscope/zh_CN/tutorial/203-parser.html)
+- [Tool](https://modelscope.github.io/agentscope/zh_CN/tutorial/204-service.html)
+- [Pipeline and MsgHub](https://modelscope.github.io/agentscope/zh_CN/tutorial/202-pipeline.html)
+- [Distribution](https://modelscope.github.io/agentscope/zh_CN/tutorial/208-distribute.html)
+- [AgentScope Studio](https://modelscope.github.io/agentscope/zh_CN/tutorial/209-gui.html)
+- [Logging](https://modelscope.github.io/agentscope/zh_CN/tutorial/105-logging.html)
+- [Monitor](https://modelscope.github.io/agentscope/zh_CN/tutorial/207-monitor.html)
+- [Example: Werewolf Game](https://modelscope.github.io/agentscope/zh_CN/tutorial/104-usecase.html)
 
 ## License
 
-PilotScope is released under Apache License 2.0.
-
-## Reference
-
-If you find our work useful for your research or development, please kindly cite the following
-
-	@article{zhu2023pilotscope,
-  		title={PilotScope: Steering Databases with Machine Learning Drivers},
-  		author={Rong Zhu and Lianggui Weng and Wenqing Wei and Di Wu and Jiazhen Peng and Yifan Wang and Bolin Ding and Defu Lian Bolong Zheng and Jingren Zhou},
-  		journal = {Proceedings of the VLDB Endowment},
-  		year={2024}}
-
+AgentScope is released under Apache License 2.0.
 
 ## Contributing
 
-As an open-sourced project, we greatly appreciate any contribution to PilotScope! 
+Contributions are always welcomed!
+
+We provide a developer version with additional pre-commit hooks to perform
+checks compared to the official version:
+
+```bash
+# For windows
+pip install -e .[dev]
+# For mac
+pip install -e .\[dev\]
+
+# Install pre-commit hooks
+pre-commit install
+```
+
+Please refer to our [Contribution Guide](https://modelscope.github.io/agentscope/en/tutorial/302-contribute.html) for more details.
+
+## References
+
+If you find our work helpful for your research or application, please
+cite [our paper](https://arxiv.org/abs/2402.14034):
+
+```
+@article{agentscope,
+  author  = {Dawei Gao and
+             Zitao Li and
+             Xuchen Pan and
+             Weirui Kuang and
+             Zhijian Ma and
+             Bingchen Qian and
+             Fei Wei and
+             Wenhao Zhang and
+             Yuexiang Xie and
+             Daoyuan Chen and
+             Liuyi Yao and
+             Hongyi Peng and
+             Zeyu Zhang and
+             Lin Zhu and
+             Chen Cheng and
+             Hongzhu Shi and
+             Yaliang Li and
+             Bolin Ding and
+             Jingren Zhou},
+  title   = {AgentScope: A Flexible yet Robust Multi-Agent Platform},
+  journal = {CoRR},
+  volume  = {abs/2402.14034},
+  year    = {2024},
+}
+```
