@@ -70,38 +70,19 @@ AppWielder 的核心竞争力在于其高度自动化的 API 编排逻辑以及�
 - 🌟 Token优化：AppWielder 的优化算法能够智能的评估消息的可用性，降低令牌(token)的使用量，减少因API调用导致的开销（即将推出）。
 
 ## 应用：基于AppWielder的VsCode插件
-
 我们实现了一个Visual Studio Code插件[SmarterVscode]()，它允许用户通过自然语言来操作VsCode支持的各种功能，下面是其支持的部分功能演示：
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around;">
-  <div>
-    <p><b>Tic-tac-toe Game</b></p>
-    <video width="320" height="240" controls>
-      <source src="https://www.example.com/path_to_video_1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <div>
-    <p><b>Style Changing</b></p>
-    <video width="320" height="240" controls>
-      <source src="https://www.example.com/path_to_video_2.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <div>
-    <p><b>Theme Changing</b></p>
-    <video width="320" height="240" controls>
-      <source src="https://www.example.com/path_to_video_3.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <div>
-    <p><b>Enable auto saving</b></p>
-    <video width="320" height="240" controls>
-      <source src="https://code.alibaba-inc.com/lianggui.wlg/LLM4API-Assets/blob/main/autosave.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+
+### Tic-tac-toe Game
+https://github.com/alibaba/pilotscope/assets/31238100/eef9765a-8cda-4654-a147-475ed1a13c58
+
+### Style Changing
+https://github.com/alibaba/pilotscope/assets/31238100/18480837-b90f-44d6-8c28-d5f17a4552da
+
+### Theme Changing
+https://github.com/alibaba/pilotscope/assets/31238100/2a8cd2fd-22df-4ba0-a564-90cad6c708bb
+
+### Enable auto saving
+https://github.com/alibaba/pilotscope/assets/31238100/77548e8a-2832-4770-8924-ea479646e3a8
 
 ## 连接你的应用程序
 
@@ -121,7 +102,7 @@ AppWielder 高度抽象了一套简易的接口来帮助用户将应用程序连
 
 ## 文档
 
-[文档](https://modelscope.github.io/agentscope/#welcome-to-agentscope-tutorial-hub)记录了更多关于AppWielder的使用方法，你能参考这些文档来更好的使用AppWielder。
+[文档](https://modelscope.github.io/agentscope/#welcome-to-agentscope-tutorial-hub)详细介绍了如何将AppWielder连接到你的应用程序，你能参考这些文档来更好的使用AppWielder。
 
 ## 许可证
 
