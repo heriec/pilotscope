@@ -84,21 +84,6 @@ https://github.com/alibaba/pilotscope/assets/31238100/2a8cd2fd-22df-4ba0-a564-90
 ### Enable auto saving
 https://github.com/alibaba/pilotscope/assets/31238100/77548e8a-2832-4770-8924-ea479646e3a8
 
-## 连接你的应用程序
-
-AppWielder 高度抽象了一套简易的接口来帮助用户将应用程序连接到 AppWielder 平台，从而允许用户通过自然语言来操纵你的应用程序。
-一个部署示意图如下：
-
-首先，你的应用程序需要提交一些必要的信息给AppWielder平台，以便AppWielder平台能够了解你的应用程序，并为你的应用程序提供服务。
-在收到用户请求，你将用户请求转发给AppWielder平台，AppWielder平台决定调用你的应用程序的哪一个API，并将对应的API和参数返回给你的应用程序，你的应用程序执行API调用，并将结果再次返回给AppWielder平台，并等待获得下一个API调用的指令。
-上述交互过程将持续迭代直到AppWielder反馈一个任务成功或者任务失败的指令。
-
-最后，基于AppWielder平台，你仅仅需要完成以下几个步骤，就可以让你的应用程序支持自然语言操作：
-
-1. 提交你的应用程序支持调用的API清单（必选），以及一些可选的说明文档。
-2. 在你的应用程序中实现一个简单的HTTP服务，用于向AppWielder平台发送用户请求，反馈API调用的结果，以及接受AppWielder平台的指令。
-
-注意：AppWielder不关注你的应用程序是如何与用户交互的，可能是一个简单的输入框，或者半幅的对话界面，这完全取决于你的应用程序的设计。
 
 ## 文档
 
