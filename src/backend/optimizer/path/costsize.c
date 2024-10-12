@@ -4712,8 +4712,8 @@ set_baserel_size_estimates(PlannerInfo *root, RelOptInfo *rel)
 				nrows = rel->tuples;
 		}
 		else{
-			// printf("%s\n", sub_query->data);
-			elog(ERROR, "Can not find the corresponding sub-plan query in push anchor");
+			printf("%s\n", sub_query->data);
+			// elog(ERROR, "Can not find the corresponding sub-plan query in push anchor");
 		}
 	}
 	/** modification end **/
@@ -4783,8 +4783,8 @@ get_parameterized_baserel_size(PlannerInfo *root, RelOptInfo *rel,
 				nrows = atof(row_from_push_anchor);
 			}
 			else{
-				// printf("%s\n", sub_query->data);
-				elog(ERROR, "Can not find the corresponding sub-plan query in push anchor");
+				printf("%s\n", sub_query->data);
+				// elog(ERROR, "Can not find the corresponding sub-plan query in push anchor");
 			}
 		}else{  // Inherited from injected rows, rather than rows estimated by PG.
 			nrows = rel->rows * clauselist_selectivity(root,
@@ -4869,8 +4869,8 @@ set_joinrel_size_estimates(PlannerInfo *root, RelOptInfo *rel,
 			nrows = atof(row_from_push_anchor);
 		}
 		else{
-			// printf("%s\n", sub_query->data);
-			elog(ERROR, "Can not find the corresponding sub-plan query in push anchor");
+			printf("%s\n", sub_query->data);
+			// elog(ERROR, "Can not find the corresponding sub-plan query in push anchor");
 		}
 
 		rel->rows = clamp_row_est(nrows);
