@@ -13,16 +13,17 @@
 
 #include "pilotscope/hashtable.h"
 
-int table_size = 1;
-Hashtable* table;
+
+Hashtable* table;          // store the foreign subquery (its hash of prefix is the key) and the corresponding cardinality (value)
+Hashtable* count_table;    // store the generated subquery (its hash of prefix is the key) and the corresponding count (value)
 
 static Entry* create_entry(const char* key, const char* value);
 
 // get hash
-unsigned int hash(const char* key, int key_len) 
+unsigned int hash(const char* key, int key_len, int table_capacity) 
 {
     unsigned int hash_val=hash_bytes((const unsigned char*)key, key_len);
-    return hash_val % table_size;
+    return hash_val % table_capacity;
 }
 
 // create entry
@@ -38,17 +39,18 @@ Entry* create_entry(const char* key, const char* value)
 }
 
 // create hash table
-Hashtable* create_hashtable() 
+Hashtable* create_hashtable(int table_capacity) 
 {
     Hashtable* table = (Hashtable*)palloc(sizeof(Hashtable));
-    table->entries   = (Entry**)palloc0(table_size*sizeof(Entry*));
+    table->capacity      = table_capacity;
+    table->entries   = (Entry**)palloc0(table_capacity*sizeof(Entry*));
     return table;
 }
 
 // put item into hashtable
 void put(Hashtable* table, const char* key, const int key_len, const char* value) 
 {
-    unsigned int index = hash(key, key_len);
+    unsigned int index = hash(key, key_len, table->capacity);
     if (table->entries[index] == NULL) 
     {
         table->entries[index] = create_entry(key, value);
@@ -74,7 +76,7 @@ void put(Hashtable* table, const char* key, const int key_len, const char* value
 // get value from hashtable according to the key
 char* get(Hashtable* table, const char* key, const int key_len) 
 {
-    unsigned int index = hash(key, key_len);
+    unsigned int index = hash(key, key_len, table->capacity);
     Entry* current = table->entries[index];
     while (current != NULL) 
     {

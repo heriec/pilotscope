@@ -72,6 +72,7 @@ static void get_join_info (PlannerInfo *root);
 static void get_base_restrictclauses (PlannerInfo *root, Relids relids);
 static DeparseTblRef **makeDeparseTblRef(int num);
 static Relids get_relids_only_in_rangetbl(Node *jtnode);
+static void count_hash_prefix();
 
 /* 
  * Compare the relation order of join clause.
@@ -656,8 +657,9 @@ void
 get_single_rel (PlannerInfo *root, RelOptInfo *rel) {
 	sub_query = makeStringInfo();
 	appendStringInfoString(sub_query, "/* (");
-	get_relids(root, rel->relids, false);
-	appendStringInfoString(sub_query, ") */ ");
+	get_relids(root, rel->relids, true);
+	// appendStringInfoString(sub_query, ") */ ");
+	count_hash_prefix();
 	appendStringInfoString(sub_query, "SELECT COUNT(*) FROM ");
 	get_relids(root, rel->relids, true);
 	isWhereOrAnd = true;
@@ -670,14 +672,14 @@ get_single_rel (PlannerInfo *root, RelOptInfo *rel) {
  * Get parameterized single-relation subquery. 
  * Format: 
  * SELECT COUNT(*) FROM r1 WHERE filter(r1); 
- * SELECT COUNT(DISTINCT r2.key from r2; 
+ * SELECT COUNT(DISTINCT r2.key) from r2; 
  * /* SELECT COUNT(*) FROM r1 WHERE filter(r1) and r1.key = r2.key * /
  */
 void
 get_parameterized_baserel (PlannerInfo *root, RelOptInfo *rel, List *param_clauses) {
 	sub_query = makeStringInfo();
 	appendStringInfoString(sub_query, "/* (");
-	get_relids(root, rel->relids, false);
+	get_relids(root, rel->relids, true);
 	if (list_length(param_clauses) != 0){
 		appendStringInfoString(sub_query, ") (");
 		Relids required_outer = NULL;
@@ -691,9 +693,10 @@ get_parameterized_baserel (PlannerInfo *root, RelOptInfo *rel, List *param_claus
 				required_outer = bms_add_members(required_outer, bms_difference(c->required_relids, rel->relids));
 			}
 		}
-		get_relids(root, required_outer, false);	
+		get_relids(root, required_outer, true);	
 	}
-	appendStringInfoString(sub_query, ") */ ");
+	// appendStringInfoString(sub_query, ") */ ");
+	count_hash_prefix();
 
 	// Get base rel
 	appendStringInfoString(sub_query, "SELECT COUNT(*) FROM ");
@@ -1031,6 +1034,25 @@ get_relids_only_in_rangetbl(Node *jtnode)
 	return result;
 }
 
+
+/*
+ * Count the the prefix (key) of subuqery to prevent the same key
+ */
+static void 
+count_hash_prefix(){
+	char *count = get(count_table, sub_query->data, sub_query->len);
+	if (count == NULL){
+		put(count_table, sub_query->data, sub_query->len, "1");
+		appendStringInfoString(sub_query, ") */ ");
+	}else{
+		int c = atoi(count);
+		char value[12]; // Enough to hold all numbers up to 32-bit int
+		sprintf(value, "%d", c+1);
+		put(count_table, sub_query->data, sub_query->len, value);
+		appendStringInfo(sub_query, ") %d */ ", c+1);
+	}
+}
+
 /*
  * Get multi-relation subquery. Extract infomation from " select 、from、 where" 
  */
@@ -1057,8 +1079,9 @@ get_join_rel (PlannerInfo *root,
 
 	sub_query = makeStringInfo();
 	appendStringInfoString(sub_query, "/* (");
-	get_relids(root, join_rel->relids, false);
-	appendStringInfoString(sub_query, ") */ ");
+	get_relids(root, join_rel->relids, true);
+	count_hash_prefix();
+	
 	appendStringInfoString(sub_query, "SELECT COUNT(*) FROM ");
 	isWhereOrAnd = true;
 	get_join_info(root);

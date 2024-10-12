@@ -66,6 +66,8 @@ static void parse_one_anchor(char* anchorname,char* anchor_json);
 static cJSON* parse_relative_infomation(char* queryString,char* check_start,char* check_end);
 static void for_each_anchor(cJSON *anchor);
 
+#define HASH_TABLE_SIZE 1023
+
 /*
  * We parse all of the anchors here.
  *
@@ -145,6 +147,7 @@ static void parse_one_anchor(char* anchorname,char* anchor_json)
             cJSON* subquery_ancor_dict = cJSON_Parse(anchor_json);
             cJSON *enable_parameterized_item         = cJSON_GetObjectItem(subquery_ancor_dict, "enable_parameterized_subquery");
             enable_parameterized_path_rows_estimation = enable_parameterized_item->valueint;
+            count_table = create_hashtable(HASH_TABLE_SIZE); 
             break;
         case CARD_PUSH_ANCHOR:
             anchor_handler(anchor_json,card_push_anchor,CardPushAnchor,Card_Replace_Anchor_ref_tbl);
@@ -152,6 +155,7 @@ static void parse_one_anchor(char* anchorname,char* anchor_json)
             cJSON* subquery_ancor_dict_ = cJSON_Parse(anchor_json);
             cJSON *enable_parameterized_item_         = cJSON_GetObjectItem(subquery_ancor_dict_, "enable_parameterized_subquery");
             enable_parameterized_path_rows_estimation = enable_parameterized_item_->valueint;
+            count_table = create_hashtable(HASH_TABLE_SIZE); 
             break;
         case EXECUTION_TIME_PULL_ANCHOR:
             anchor_handler(anchor_json,execution_time_pull_anchor,ExecutionTimePullAnchor,Execution_Time_Fetch_Anchor_ref_tbl);

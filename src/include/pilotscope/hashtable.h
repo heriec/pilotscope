@@ -21,16 +21,17 @@ typedef struct
     char* key;
     char* value;
     struct Entry* next;
-} Entry;
+}Entry;
 
 typedef struct 
 {
     Entry** entries;
+    int capacity;
 } Hashtable;
 
-extern int table_size;
-extern Hashtable* table;
-Hashtable* create_hashtable();
+extern Hashtable* table;  
+extern Hashtable* count_table;  
+Hashtable* create_hashtable(int table_capacity);
 void put(Hashtable* table, const char* key, const int key_len, const char* value);
 char* get(Hashtable* table, const char* key, const int key_len);
 #endif

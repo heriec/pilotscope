@@ -260,8 +260,8 @@ void end_anchor()
  void store_aimodel_subquery2card()
 {
     // avoid hash confict
-    table_size = card_push_anchor->card_num * card_push_anchor->card_num;
-    table      = create_hashtable();
+    int table_size = card_push_anchor->card_num * card_push_anchor->card_num;
+    table      = create_hashtable(table_size);
 
     for(int i = 0;i<card_push_anchor->card_num;i++)
     {
