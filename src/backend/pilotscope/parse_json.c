@@ -66,7 +66,7 @@ static void parse_one_anchor(char* anchorname,char* anchor_json);
 static cJSON* parse_relative_infomation(char* queryString,char* check_start,char* check_end);
 static void for_each_anchor(cJSON *anchor);
 
-#define HASH_TABLE_SIZE 1023
+#define HASH_TABLE_SIZE 16384
 
 /*
  * We parse all of the anchors here.
