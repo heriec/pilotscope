@@ -30,12 +30,21 @@ unsigned int hash(const char* key, int key_len, int table_capacity)
 // create entry
 Entry* create_entry(const char* key, const char* value) 
 {
+    MemoryContext oldcxt = NULL;
+    if (strcmp(CurrentMemoryContext->name, "MessageContext") != 0)
+    {
+        oldcxt = MemoryContextSwitchTo(CurrentMemoryContext->parent);
+    }
     Entry* entry = (Entry*)palloc(sizeof(Entry));
     entry->key   = (char*)palloc(strlen(key) + 1);
     entry->value = (char*)palloc(strlen(value) + 1);
     entry->next  = NULL;
     strcpy(entry->key, key);
     strcpy(entry->value, value);
+    if (oldcxt != NULL)
+    {
+        MemoryContextSwitchTo(oldcxt);
+    }
     return entry;
 }
 
