@@ -16,14 +16,14 @@
 #include <string.h>
 #include "postgres.h"
 
-typedef struct 
+typedef struct Entry
 {
     char* key;
     char* value;
     struct Entry* next;
 }Entry;
 
-typedef struct 
+typedef struct Hashtable
 {
     Entry** entries;
     int capacity;
@@ -35,3 +35,5 @@ Hashtable* create_hashtable(int table_capacity);
 void put(Hashtable* table, const char* key, const int key_len, const char* value);
 char* get(Hashtable* table, const char* key, const int key_len);
 #endif
+
+unsigned int hash(const char* key, int key_len, int table_capacity);

@@ -104,6 +104,7 @@ extern int enable_parameterized_path_rows_estimation;
 
 // function
 extern void init_some_vars();
+extern void anchorname_to_enu(char* anchorname);
 extern void end_anchor();
 extern char* get_card_from_push_anchor(Hashtable* table, const char* key);
 extern void store_aimodel_subquery2card();

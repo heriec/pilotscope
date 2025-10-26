@@ -187,13 +187,13 @@ get_expr(const Node *expr, PlannerInfo *root)
 			// convert Param to Const
 
 			/* see if we can replace the Param */
-			Node	   *subst = estimate_expression_value(root, param);
+			Node	   *subst = estimate_expression_value(root, (Node *) param);
 
 			if (IsA(subst, Const))
 			{
 				/* bool constant is pretty easy... */
 				Const	   *con = (Const *) subst;
-				get_expr(con, root);
+				get_expr((const Node *)con, root);
 			}
 			else
 			{
@@ -304,7 +304,7 @@ get_expr(const Node *expr, PlannerInfo *root)
 		}
 		case T_RelabelType:
 		{
-			expr = ((RelabelType *) expr)->arg;
+			expr = (const Node *)(((RelabelType *) expr)->arg);
 			get_expr(expr, root);
 			break;
 		}
@@ -336,7 +336,7 @@ get_expr(const Node *expr, PlannerInfo *root)
 					appendStringInfo(sub_query, " %s ", boolopname);
 				}
 				appendStringInfoChar(sub_query, '(');
-				get_expr(arg, root);
+				get_expr((const Node *)arg, root);
 				appendStringInfoChar(sub_query, ')');
 				off++;
 			}
@@ -346,7 +346,7 @@ get_expr(const Node *expr, PlannerInfo *root)
 		{
 			NullTest   *ntest = (NullTest *) expr;
 			Expr	   *arg = ntest->arg;
-			get_expr(arg, root);
+			get_expr((const Node *)arg, root);
 			if (ntest->argisrow || !type_is_rowtype(exprType((Node *) ntest->arg)))
 			{
 				if (ntest->nulltesttype == IS_NULL)
@@ -383,7 +383,7 @@ get_expr(const Node *expr, PlannerInfo *root)
 			scalararg = (Expr *) linitial(opexpr->args);
 			arrayarg = (Expr *) lsecond(opexpr->args);
 
-			get_expr(scalararg, root);
+			get_expr((const Node *)scalararg, root);
 			opname = get_opname(opexpr->opno);
 			if (strcmp(opname, "~~") == 0){
 				opname = "LIKE";
@@ -399,8 +399,8 @@ get_expr(const Node *expr, PlannerInfo *root)
 			if (arrayarg && IsA(arrayarg, Const)){
 				Datum		arraydatum = ((Const *) arrayarg)->constvalue;
 				bool		arrayisnull = ((Const *) arrayarg)->constisnull;
-				Oid			nominal_element_type = get_base_element_type(exprType(arrayarg));
-				Oid			nominal_element_collation = exprCollation(arrayarg);
+				Oid			nominal_element_type = get_base_element_type(exprType((Node *)arrayarg));
+				Oid			nominal_element_collation = exprCollation((const Node *)arrayarg);
 				ArrayType  *arrayval;
 				int16		elmlen;
 				bool		elmbyval;
@@ -430,7 +430,7 @@ get_expr(const Node *expr, PlannerInfo *root)
 										elem_values[i],
 										elem_nulls[i],
 										elmbyval);
-					get_expr(elem, root);
+					get_expr((const Node *)elem, root);
 				}
 				appendStringInfoChar(sub_query, ')');
 			}
@@ -753,12 +753,12 @@ append_join_clause_to_context(PlannerInfo *root, RelOptInfo *join_rel, JoinType 
 					Relids all_relids = bms_union(joinclause->left_relids, joinclause->right_relids);
 					if(bms_overlap(joinclause->left_relids, jg->relids)){
 						jg->relids = bms_join(jg->relids, all_relids);
-						jg = lappend(jg->join_clauses, joinclause);
+						jg->join_clauses = lappend(jg->join_clauses, joinclause);
 						isOverlap = true;
 					}else if(bms_overlap(joinclause->right_relids, jg->relids)){
 						jg->relids = bms_join(jg->relids, all_relids);
 						joinclause->swap = true;
-						jg = lappend(jg->join_clauses, joinclause);
+						jg->join_clauses = lappend(jg->join_clauses, joinclause);
 						isOverlap = true;
 					}
 				}

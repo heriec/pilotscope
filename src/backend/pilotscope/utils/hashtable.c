@@ -12,7 +12,8 @@
  */
 
 #include "pilotscope/hashtable.h"
-
+#include "common/hashfn.h"
+#include "utils/memutils.h"
 
 Hashtable* table;          // store the foreign subquery (its hash of prefix is the key) and the corresponding cardinality (value)
 Hashtable* count_table;    // store the generated subquery (its hash of prefix is the key) and the corresponding count (value)

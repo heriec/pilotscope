@@ -79,7 +79,7 @@ static void init_and_reinit_http()
 		if(++init_times>MAX_SEND_TIMES)
 		{
 			elog(INFO,"Reach the maximum number of initing times!");
-			return 0;
+			// return 0;
 		}
 		else
 		{

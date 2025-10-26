@@ -66,6 +66,7 @@
 #include "utils/syscache.h"
 
 #include "pilotscope/anchor2struct.h"
+#include "pilotscope/parse_json.h"
 /** modification end **/
 /* GUC parameters */
 double		cursor_tuple_fraction = DEFAULT_CURSOR_TUPLE_FRACTION;
